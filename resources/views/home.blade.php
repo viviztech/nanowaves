@@ -4,18 +4,94 @@
 
 @section('content')
     <!-- Hero Banner - Full Page -->
-    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
+    <section class="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+        <!-- Animated Gradient Background -->
+        <div class="absolute inset-0 animate-gradient" style="background: linear-gradient(-45deg, #2563eb, #1e40af, #4f46e5, #6366f1); background-size: 400% 400%;"></div>
+        
+        <!-- Network Grid Pattern -->
+        <div class="absolute inset-0 opacity-10 animate-grid">
             <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
         </div>
         
-        <!-- Animated Background Elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-            <div class="absolute top-40 right-10 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-            <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <!-- Wi-Fi Signal Waves -->
+        <div class="absolute top-20 left-20 pointer-events-none">
+            <div class="relative w-32 h-32">
+                <!-- Wi-Fi Wave Circles -->
+                <div class="absolute inset-0 border-2 border-blue-300 rounded-full animate-wifi-wave-1"></div>
+                <div class="absolute inset-0 border-2 border-blue-300 rounded-full animate-wifi-wave-2"></div>
+                <div class="absolute inset-0 border-2 border-blue-300 rounded-full animate-wifi-wave-3"></div>
+                <!-- Wi-Fi Center Node -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-400 rounded-full animate-node-pulse"></div>
+            </div>
         </div>
+        
+        <div class="absolute top-32 right-32 pointer-events-none">
+            <div class="relative w-24 h-24">
+                <div class="absolute inset-0 border-2 border-indigo-300 rounded-full animate-wifi-wave-1 animation-delay-1000"></div>
+                <div class="absolute inset-0 border-2 border-indigo-300 rounded-full animate-wifi-wave-2 animation-delay-1500"></div>
+                <div class="absolute inset-0 border-2 border-indigo-300 rounded-full animate-wifi-wave-3 animation-delay-2000"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-indigo-400 rounded-full animate-node-pulse animation-delay-1000"></div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-32 left-32 pointer-events-none">
+            <div class="relative w-28 h-28">
+                <div class="absolute inset-0 border-2 border-purple-300 rounded-full animate-wifi-wave-1 animation-delay-2000"></div>
+                <div class="absolute inset-0 border-2 border-purple-300 rounded-full animate-wifi-wave-2 animation-delay-2500"></div>
+                <div class="absolute inset-0 border-2 border-purple-300 rounded-full animate-wifi-wave-3 animation-delay-3000"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-purple-400 rounded-full animate-node-pulse animation-delay-2000"></div>
+            </div>
+        </div>
+        
+        <!-- Data Packets Flowing -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Data Packets Moving Up -->
+            <div class="absolute left-1/4 w-3 h-3 bg-blue-400 rounded-sm opacity-60 animate-data-packet" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+            <div class="absolute left-1/3 w-2.5 h-2.5 bg-indigo-400 rounded-sm opacity-50 animate-data-packet animation-delay-1000" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+            <div class="absolute left-1/2 w-3.5 h-3.5 bg-cyan-400 rounded-sm opacity-55 animate-data-packet animation-delay-2000" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+            <div class="absolute left-2/3 w-2 h-2 bg-blue-300 rounded-sm opacity-60 animate-data-packet animation-delay-3000" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+            <div class="absolute left-3/4 w-3 h-3 bg-indigo-300 rounded-sm opacity-50 animate-data-packet animation-delay-4000" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+            
+            <!-- Data Packets Moving Down -->
+            <div class="absolute right-1/4 w-3 h-3 bg-purple-400 rounded-sm opacity-60 animate-data-packet-reverse" style="clip-path: polygon(0% 0%, 100% 0%, 50% 100%);"></div>
+            <div class="absolute right-1/3 w-2.5 h-2.5 bg-pink-400 rounded-sm opacity-50 animate-data-packet-reverse animation-delay-1500" style="clip-path: polygon(0% 0%, 100% 0%, 50% 100%);"></div>
+            <div class="absolute right-1/2 w-3.5 h-3.5 bg-violet-400 rounded-sm opacity-55 animate-data-packet-reverse animation-delay-2500" style="clip-path: polygon(0% 0%, 100% 0%, 50% 100%);"></div>
+            <div class="absolute right-2/3 w-2 h-2 bg-purple-300 rounded-sm opacity-60 animate-data-packet-reverse animation-delay-3500" style="clip-path: polygon(0% 0%, 100% 0%, 50% 100%);"></div>
+        </div>
+        
+        <!-- Signal Pulses -->
+        <div class="absolute top-1/4 right-1/4 w-4 h-4 bg-blue-400 rounded-full animate-signal-pulse"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-4 h-4 bg-indigo-400 rounded-full animate-signal-pulse animation-delay-1000"></div>
+        <div class="absolute top-1/2 left-1/3 w-3 h-3 bg-purple-400 rounded-full animate-signal-pulse animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 right-1/3 w-3 h-3 bg-cyan-400 rounded-full animate-signal-pulse animation-delay-3000"></div>
+        
+        <!-- Expanding Signal Waves -->
+        <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <div class="w-32 h-32 border-2 border-blue-300 rounded-full animate-signal-expand"></div>
+        </div>
+        <div class="absolute bottom-1/3 right-1/3 pointer-events-none">
+            <div class="w-24 h-24 border-2 border-indigo-300 rounded-full animate-signal-expand animation-delay-1500"></div>
+        </div>
+        
+        <!-- Network Connection Lines (SVG) -->
+        <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" style="z-index: 1;">
+            <defs>
+                <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <line x1="10%" y1="20%" x2="30%" y2="40%" stroke="url(#lineGradient1)" stroke-width="2" stroke-dasharray="10,5" style="stroke-dashoffset: 1000; animation: connection-flow 4s linear infinite;"></line>
+            <line x1="70%" y1="30%" x2="90%" y2="50%" stroke="url(#lineGradient1)" stroke-width="2" stroke-dasharray="10,5" style="stroke-dashoffset: 1000; animation: connection-flow 4s linear infinite 2s;"></line>
+            <line x1="20%" y1="60%" x2="50%" y2="30%" stroke="url(#lineGradient1)" stroke-width="2" stroke-dasharray="10,5" style="stroke-dashoffset: 1000; animation: connection-flow 5s linear infinite 1s;"></line>
+        </svg>
+        
+        <!-- Network Nodes -->
+        <div class="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400 rounded-full animate-node-pulse shadow-lg shadow-blue-400/50"></div>
+        <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-indigo-400 rounded-full animate-node-pulse animation-delay-1000 shadow-lg shadow-indigo-400/50"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400 rounded-full animate-node-pulse animation-delay-2000 shadow-lg shadow-purple-400/50"></div>
+        <div class="absolute top-1/2 right-1/3 w-3 h-3 bg-cyan-400 rounded-full animate-node-pulse animation-delay-3000 shadow-lg shadow-cyan-400/50"></div>
+        <div class="absolute bottom-1/3 left-2/3 w-3 h-3 bg-blue-300 rounded-full animate-node-pulse animation-delay-1500 shadow-lg shadow-blue-300/50"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">

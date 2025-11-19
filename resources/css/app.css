@@ -63,24 +63,243 @@ a, button {
     }
 }
 
-/* Animations */
-@keyframes blob {
+/* Internet-Themed Animations */
+@keyframes gradient-shift {
     0% {
-        transform: translate(0px, 0px) scale(1);
+        background-position: 0% 50%;
     }
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
+    50% {
+        background-position: 100% 50%;
     }
     100% {
-        transform: translate(0px, 0px) scale(1);
+        background-position: 0% 50%;
     }
 }
 
-.animate-blob {
-    animation: blob 7s infinite;
+@keyframes grid-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(40px, 40px);
+    }
+}
+
+/* Data Packet Flow Animation */
+@keyframes data-packet-flow {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes data-packet-flow-reverse {
+    0% {
+        transform: translateY(-100vh) translateX(0) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-50px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Wi-Fi Signal Waves */
+@keyframes wifi-pulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+@keyframes wifi-wave-1 {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.2;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes wifi-wave-2 {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.15;
+        transform: scale(1.3);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes wifi-wave-3 {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.1;
+        transform: scale(1.4);
+    }
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+/* Network Signal Pulse */
+@keyframes signal-pulse {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+    }
+}
+
+/* Network Node Connection */
+@keyframes node-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+}
+
+/* Connection Line Animation */
+@keyframes connection-flow {
+    0% {
+        stroke-dashoffset: 1000;
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+    }
+}
+
+/* Signal Wave Expansion */
+@keyframes signal-expand {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Data Stream Flow */
+@keyframes data-stream {
+    0% {
+        transform: translateX(-100px) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* Animation Classes */
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+.animate-grid {
+    animation: grid-move 20s linear infinite;
+}
+
+.animate-data-packet {
+    animation: data-packet-flow 8s linear infinite;
+}
+
+.animate-data-packet-reverse {
+    animation: data-packet-flow-reverse 10s linear infinite;
+}
+
+.animate-wifi-pulse {
+    animation: wifi-pulse 2s ease-in-out infinite;
+}
+
+.animate-wifi-wave-1 {
+    animation: wifi-wave-1 3s ease-in-out infinite;
+}
+
+.animate-wifi-wave-2 {
+    animation: wifi-wave-2 3s ease-in-out infinite 0.5s;
+}
+
+.animate-wifi-wave-3 {
+    animation: wifi-wave-3 3s ease-in-out infinite 1s;
+}
+
+.animate-signal-pulse {
+    animation: signal-pulse 2s ease-in-out infinite;
+}
+
+.animate-node-pulse {
+    animation: node-pulse 2s ease-in-out infinite;
+}
+
+.animate-signal-expand {
+    animation: signal-expand 3s ease-out infinite;
+}
+
+.animate-data-stream {
+    animation: data-stream 12s linear infinite;
 }
 
 .animation-delay-2000 {
@@ -89,6 +308,30 @@ a, button {
 
 .animation-delay-4000 {
     animation-delay: 4s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-3000 {
+    animation-delay: 3s;
+}
+
+.animation-delay-5000 {
+    animation-delay: 5s;
+}
+
+.animation-delay-1500 {
+    animation-delay: 1.5s;
+}
+
+.animation-delay-2500 {
+    animation-delay: 2.5s;
+}
+
+.animation-delay-3500 {
+    animation-delay: 3.5s;
 }
 
 /* Smooth scroll behavior */
