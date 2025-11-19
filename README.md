@@ -1,58 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# NanoWaves
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based subscription management platform with payment gateway integration and SMS OTP verification.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- ✅ Admin panel for managing users, plans, and subscriptions
+- ✅ Customer portal for viewing plans and managing subscriptions
+- ✅ Razorpay payment gateway integration
+- ✅ MSG91 SMS gateway for OTP verification
+- ✅ Role-based permission system
+- ✅ Subscription management
+- ✅ Plan management
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.2 or 8.3
+- Composer
+- Node.js 18+ and npm
+- MySQL/PostgreSQL (or SQLite for development)
+- Web server (Nginx/Apache)
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Development Setup
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+# Clone repository
+git clone <repository-url> nanowaves
+cd nanowaves
 
-## Laravel Sponsors
+# Install PHP dependencies
+composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Install Node dependencies
+npm install
 
-### Premium Partners
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# Configure database in .env file
+# Then run migrations
+php artisan migrate
 
-## Contributing
+# Seed database
+php artisan db:seed
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Build assets
+npm run build
 
-## Code of Conduct
+# Start development server
+composer run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Configuration
 
-## Security Vulnerabilities
+### Environment Variables
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Copy `.env.example` to `.env` and configure:
+
+- **Database**: `DB_CONNECTION`, `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
+- **Razorpay**: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`
+- **MSG91**: `MSG91_AUTH_KEY`, `MSG91_SENDER_ID`, `MSG91_ROUTE`
+- **Mail**: `MAIL_MAILER`, `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`
+
+See `.env.example` for all available configuration options.
+
+### Setup Guides
+
+- [Admin Panel Setup](ADMIN_PANEL_SETUP.md)
+- [Razorpay Setup](RAZORPAY_SETUP.md)
+- [MSG91 Setup](MSG91_SETUP.md)
+- [Role & Permission System](ROLE_PERMISSION_SYSTEM.md)
+- [Customer Portal Credentials](CUSTOMER_PORTAL_CREDENTIALS.md)
+
+## Deployment
+
+### Quick Deployment
+
+```bash
+# Using Composer script
+composer run deploy
+
+# Or using deployment script
+./deploy.sh
+```
+
+### Full Deployment Guide
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment instructions.
+
+### Quick Reference
+
+See [QUICK_DEPLOY.md](QUICK_DEPLOY.md) for quick deployment commands.
+
+### Deployment Checklist
+
+See [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) for a comprehensive checklist.
+
+## Available Scripts
+
+- `composer run setup` - Initial setup (install dependencies, generate key, migrate, build)
+- `composer run dev` - Start development server with hot reload
+- `composer run deploy` - Production deployment
+- `composer run deploy:update` - Update existing deployment
+- `composer run test` - Run tests
+- `npm run build` - Build production assets
+- `npm run dev` - Start Vite dev server
+
+## Project Structure
+
+```
+nanowaves/
+├── app/
+│   ├── Http/Controllers/    # Application controllers
+│   ├── Models/              # Eloquent models
+│   ├── Services/           # Service classes (Msg91Service)
+│   └── Traits/             # Reusable traits
+├── config/                 # Configuration files
+├── database/
+│   ├── migrations/         # Database migrations
+│   └── seeders/           # Database seeders
+├── public/                 # Public web root
+├── resources/
+│   ├── css/               # Stylesheets
+│   ├── js/                # JavaScript files
+│   └── views/             # Blade templates
+├── routes/                 # Route definitions
+└── storage/                # Storage directory
+```
+
+## Documentation
+
+- [Laravel Documentation](https://laravel.com/docs)
+- [Razorpay Documentation](https://razorpay.com/docs)
+- [MSG91 Documentation](https://docs.msg91.com)
 
 ## License
 

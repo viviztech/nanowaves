@@ -91,9 +91,9 @@ Route::get('/payment/failed', [PaymentController::class, 'paymentFailed'])->name
 
 // Customer Authentication Routes
 Route::get('/customer/login', [CustomerAuthController::class, 'showLoginForm'])->name('customer.login');
-Route::post('/customer/login', [CustomerAuthController::class, 'login'])->name('customer.login');
+Route::post('/customer/login', [CustomerAuthController::class, 'login']);
 Route::get('/customer/register', [CustomerAuthController::class, 'showRegisterForm'])->name('customer.register');
-Route::post('/customer/register', [CustomerAuthController::class, 'register'])->name('customer.register');
+Route::post('/customer/register', [CustomerAuthController::class, 'register']);
 Route::post('/customer/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');
 
 // OTP Routes
@@ -106,7 +106,7 @@ Route::get('/customer/dashboard', function() {
 
 // Admin Authentication Routes
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 // Admin Routes (Protected)
